@@ -147,14 +147,16 @@ function hideSidebarOnScroll (trigger){
         offset: 50,
         callbackFunction: function(){
           setTimeout(function(){
-            hideSidebar(
-              $('.right-sidebar'),
-              $('.left-sidebar')
-            );
-            textSwap($('.left-sidebar-hide-button-text'));
-            return false;
-          }, 1000)
-      },
+              if (!($('.left-sidebar').hasClass('max-size'))){
+                  hideSidebar(
+                $('.right-sidebar'),
+                $('.left-sidebar')
+              );
+              textSwap($('.left-sidebar-hide-button-text'));
+              return false;
+            }
+          }, 1000);
+        } 
   });
 };
 //меняем текст в кнопке
